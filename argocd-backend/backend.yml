@@ -2,7 +2,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: backend
-  namespace: thetym
+  namespace: thetym  # Add the namespace here
 spec:
   replicas: 1
   selector:
