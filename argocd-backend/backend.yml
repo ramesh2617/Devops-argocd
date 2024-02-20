@@ -25,7 +25,7 @@ spec:
 apiVersion: v1
 kind: Service
 metadata:
-  name: backend
+  name: backend-svc  # Updated service name to avoid conflict with deployment name
   namespace: thetym
 spec:
   type: NodePort
