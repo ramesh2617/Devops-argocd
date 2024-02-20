@@ -15,7 +15,7 @@ spec:
     spec:
       containers:
       - name: backend
-        image: ramesh10654/thetymbackend:v1.3
+        image: ramesh10654/thetymbackend:v1.1
       imagePullSecrets:
       - name: dockerhub-secret
 ---
