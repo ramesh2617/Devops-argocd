@@ -16,16 +16,8 @@ spec:
       containers:
       - name: backend
         image: ramesh10654/thetymbackend:v1.1
-        resources:
-          requests:
-            memory: "1Gi"   # Adjust the memory request as needed
-            cpu: "500m"
-          limits:
-            memory: "2Gi"   # Adjust the memory limit as needed
-            cpu: "1"
       imagePullSecrets:
       - name: dockerhub-secret
-
 ---
 apiVersion: v1
 kind: Service
