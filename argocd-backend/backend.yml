@@ -16,16 +16,14 @@ spec:
         app: backend
     spec:
       containers:
-        - env:
+        - name: backend
+          image: ramesh10654/thetymbackend:v1.1
+          env:
             - name: SPRING_DATA_MONGODB_URI
-              value: >-
-                mongodb+srv://admin:bbs2020@cluster0.ohkfp.mongodb.net/testdb?retryWrites=true&w=majority
-          image: 'ramesh10654/thetymbackend:v1.1'
+              value: "mongodb+srv://admin:bbs2020@cluster0.ohkfp.mongodb.net/testdb?retryWrites=true&w=majority"
           imagePullPolicy: IfNotPresent
           imagePullSecrets:
             - name: dockerhub-secret
-          name: backend
-          resources: {}
 ---
 apiVersion: v1
 kind: Service
@@ -35,8 +33,8 @@ metadata:
 spec:
   type: NodePort
   ports:
-  - port: 80
-    targetPort: 8080
-    nodePort: 31000
+    - port: 80
+      targetPort: 8080
+      nodePort: 31000
   selector:
     app: backend
