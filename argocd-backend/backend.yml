@@ -2,7 +2,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: backend
-  namespace: thetym
+  namespace: thetym  # Add the namespace here
 spec:
   replicas: 1
   selector:
@@ -13,10 +13,6 @@ spec:
       labels:
         app: backend
     spec:
-      tolerations:
-      - key: "node-role.kubernetes.io/control-plane"
-        operator: "Exists"
-        effect: "NoSchedule"
       containers:
       - name: backend
         image: ramesh10654/thetymbackend:v1.1
