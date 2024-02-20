@@ -2,7 +2,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: backend
-  namespace: thetym
+  namespace: thetym  # Add the namespace here
 spec:
   replicas: 1
   selector:
@@ -18,20 +18,20 @@ spec:
         image: ramesh10654/thetymbackend:v1.1
         imagePullSecrets:
         - name: dockerhub-secret
-        env:
+        env:  # Indentation issue, moved inside the container definition
         - name: SPRING_DATA_MONGODB_URI
           value: "mongodb+srv://admin:bbs2020@cluster0.ohkfp.mongodb.net/testdb?retryWrites=true&w=majority"
 ---
 apiVersion: v1
 kind: Service
 metadata:
-  name: backend-svc  # Updated service name to avoid conflict with deployment name
-  namespace: thetym
+  name: backend
+  namespace: thetym  # Add the namespace here
 spec:
   type: NodePort
   ports:
   - port: 80
     targetPort: 8080
-    nodePort: 31000
+    nodePort: 31000  # Choose a nodePort within the allowed range
   selector:
     app: backend
