@@ -25,6 +25,7 @@ spec:
           imagePullSecrets:
             - name: dockerhub-secret
           name: backend
+          resources: {}
 ---
 apiVersion: v1
 kind: Service
