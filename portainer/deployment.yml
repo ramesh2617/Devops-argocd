@@ -13,15 +13,15 @@ spec:
       labels:
         app: portainer
     spec:
+      volumes:   # Define the volume here
+      - name: docker-socket
+        hostPath:
+          path: /var/run/docker.sock
       containers:
       - name: portainer
         image: portainer/portainer-ce:latest
         ports:
         - containerPort: 9000
         volumeMounts:
-        - name: docker-socket
+        - name: docker-socket   # Reference the volume here
           mountPath: /var/run/docker.sock
-  volumes:
-  - name: docker-socket
-    hostPath:
-      path: /var/run/docker.sock
