@@ -8,6 +8,7 @@ rules:
   resources:
   - deployments
   - statefulsets
+  - daemonsets
   verbs:
   - list
 - apiGroups:
