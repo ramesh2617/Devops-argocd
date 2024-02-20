@@ -1,6 +1,8 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
+  labels:
+    app.kubernetes.io/instance: thetym-backend
   name: backend
   namespace: thetym
 spec:
@@ -14,14 +16,15 @@ spec:
         app: backend
     spec:
       containers:
-      - name: backend
-        image: ramesh10654/thetymbackend:v1.1
-        imagePullPolicy: IfNotPresent  # Ensure image is only pulled if not present
-        imagePullSecrets:
-        - name: dockerhub-secret
-        env:
-        - name: SPRING_DATA_MONGODB_URI
-          value: "mongodb+srv://admin:bbs2020@cluster0.ohkfp.mongodb.net/testdb?retryWrites=true&w=majority"
+        - env:
+            - name: SPRING_DATA_MONGODB_URI
+              value: >-
+                mongodb+srv://admin:bbs2020@cluster0.ohkfp.mongodb.net/testdb?retryWrites=true&w=majority
+          image: 'ramesh10654/thetymbackend:v1.1'
+          imagePullPolicy: IfNotPresent
+          imagePullSecrets:
+            - name: dockerhub-secret
+          name: backend
 ---
 apiVersion: v1
 kind: Service
