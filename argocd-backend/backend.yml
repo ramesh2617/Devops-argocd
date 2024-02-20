@@ -16,9 +16,11 @@ spec:
       containers:
       - name: backend
         image: ramesh10654/thetymbackend:v1.1
-      imagePullSecrets:
-      - name: dockerhub-secret
-
+        imagePullSecrets:
+        - name: dockerhub-secret
+        env:
+        - name: SPRING_DATA_MONGODB_URI
+          value: "mongodb+srv://admin:bbs2020@cluster0.ohkfp.mongodb.net/testdb?retryWrites=true&w=majority"
 ---
 apiVersion: v1
 kind: Service
