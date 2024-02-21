@@ -1,0 +1,9 @@
+replicaCount: 1
+image:
+  repository: docker.io/ramesh10654/myapp
+  tag: v1.3
+  pullPolicy: IfNotPresent
+service:
+  type: NodePort
+  port: 80
+  nodePort: 30000 # Optional: You can set this to null if you want Kubernetes to assign it automatically
