@@ -6,4 +6,4 @@ image:
 service:
   type: NodePort
   port: 80
-  nodePort: 30000 # Optional: You can set this to null if you want Kubernetes to assign it automatically
+  nodePort: 33000 # Optional: You can set this to null if you want Kubernetes to assign it automatically
