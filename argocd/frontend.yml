@@ -21,7 +21,7 @@ spec:
   autoscaler:
     minReplicas: 1
     maxReplicas: 2
-    targetCPUUtilizationPercentage: 50
+    targetCPUUtilizationPercentage: 40
 
 ---
 # Modified Service YAML with namespace
