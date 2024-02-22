@@ -1,9 +1,8 @@
-# Modified Deployment YAML with namespace
 apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: frontend
-  namespace: thetym   # Specify the namespace here
+  namespace: thetym
 spec:
   replicas: 1
   selector:
@@ -19,6 +18,11 @@ spec:
         image: docker.io/ramesh10654/myapp:v1.3
         ports:
         - containerPort: 80
+  autoscaler:
+    minReplicas: 1
+    maxReplicas: 2
+    targetCPUUtilizationPercentage: 50
+
 ---
 # Modified Service YAML with namespace
 apiVersion: v1
