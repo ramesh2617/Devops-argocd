@@ -10,6 +10,6 @@ spec:
     name: frontend
   minReplicas: 1   # Minimum number of replicas
   maxReplicas: 5  # Maximum number of replicas
-  targetCPUUtilizationPercentage: 6   # Target average CPU utilization percentage
+  targetCPUUtilizationPercentage: 50  # Target average CPU utilization percentage
 
 
