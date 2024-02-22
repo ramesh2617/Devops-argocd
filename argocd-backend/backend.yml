@@ -20,7 +20,7 @@ spec:
           image: ramesh10654/thetymbackend:v1.1
           env:
             - name: SPRING_DATA_MONGODB_URI
-              value: mongodb://dbadmin:bbs2020@ip-172-31-5-87.ap-south-1.compute.internal:37011,ip-172-31-5-87.ap-south-1.compute.internal:37022,ip-172-31-5-87.ap-south-1.compute.internal:37033/Thetymv2?replicaSet=ReplSet1&authSource=admin
+              value: mongodb+srv://admin:bbs2020@cluster0.ohkfp.mongodb.net/testdb?retryWrites=true&w=majority
           imagePullPolicy: IfNotPresent
           imagePullSecrets:
             - name: dockerhub-secret
