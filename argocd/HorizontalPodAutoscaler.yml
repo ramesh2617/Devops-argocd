@@ -1,4 +1,4 @@
-apiVersion: autoscaling/v1
+apiVersion: autoscaling/v2
 kind: HorizontalPodAutoscaler
 metadata:
   name: frontend-autoscaler
@@ -9,7 +9,7 @@ spec:
     kind: Deployment
     name: frontend
   minReplicas: 1   # Minimum number of replicas
-  maxReplicas: 10  # Maximum number of replicas
+  maxReplicas: 5  # Maximum number of replicas
   targetCPUUtilizationPercentage: 10   # Target average CPU utilization percentage
 
 
