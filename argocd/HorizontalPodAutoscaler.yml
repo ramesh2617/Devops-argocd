@@ -14,9 +14,5 @@ spec:
   - type: Resource
     resource:
       name: cpu
-      targetAverageUtilization: 20
-  - type: Resource
-    resource:
-      name: memory
-      targetAverageUtilization: 20 # Adjust as needed
-
+      targetAverageUtilization: 15
+ 
