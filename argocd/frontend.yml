@@ -26,18 +26,3 @@ spec:
             memory: "128Mi"  # Limit to 128 Megabytes of memory
             cpu: "500m"      # Limit to 500 milliCPU (0.5 CPU)
 
----
-# Modified Service YAML with namespace
-apiVersion: v1
-kind: Service
-metadata:
-  name: frontend
-  namespace: thetym   # Specify the namespace here
-spec:
-  type: NodePort
-  ports:
-  - port: 80
-    targetPort: 80
-    nodePort: 30000   # You can specify a nodePort here or let Kubernetes assign one automatically
-  selector:
-    app: frontend
