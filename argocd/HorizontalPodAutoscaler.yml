@@ -14,10 +14,12 @@ spec:
   - type: Resource
     resource:
       name: cpu
-      type: Utilization
-      targetAverageUtilization: 15
+      target:
+        type: Utilization
+        AverageUtilization: 15
   - type: Resource
     resource:
       name: memory
-      type: Utilization
-      targetAverageUtilization: 15  # Target average memory utilization
+      target:
+        type: Utilization
+        AverageUtilization: 15  # Target average memory utilization
