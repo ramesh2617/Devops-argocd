@@ -18,6 +18,4 @@ spec:
   - type: Resource
     resource:
       name: memory
-      targetAverageUtilization: 15  # Corrected target utilization for memory
-
- 
+      targetAverageUtilization: 15  # Target average memory utilization
