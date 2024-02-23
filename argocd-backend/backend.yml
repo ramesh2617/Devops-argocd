@@ -22,5 +22,6 @@ spec:
             - name: SPRING_DATA_MONGODB_URI
               value: mongodb+srv://admin:bbs2020@cluster0.ohkfp.mongodb.net/testdb?retryWrites=true&w=majority
           imagePullPolicy: IfNotPresent
+          resources: {}
           imagePullSecrets:
             - name: dockerhub-secret
