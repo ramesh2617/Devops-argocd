@@ -12,7 +12,7 @@ spec:
     secretName: tls-secret  # Name of the TLS secret containing the certificate and key
   rules:
   - host: dev.thetym.com  # Replace with your domain or hostname
-    http:
+    https:
       paths:
       - path: /
         pathType: Prefix
