@@ -6,7 +6,7 @@ metadata:
   annotations:
     nginx.ingress.kubernetes.io/rewrite-target: /
 spec:
-  tls:
+  ssl:
   - hosts:
     - dev.thetym.com  # Replace with your domain or hostname
     secretName: tls-secret  # Name of the TLS secret containing the certificate and key
