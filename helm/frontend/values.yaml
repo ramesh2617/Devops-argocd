@@ -1,9 +1,6 @@
-replicaCount: 1
-image:
-  repository: docker.io/ramesh10654/myapp
-  tag: v1.3
-  pullPolicy: IfNotPresent
-service:
-  type: NodePort
-  port: 80
-  nodePort: 33000 # Optional: You can set this to null if you want Kubernetes to assign it automatically
+backend:
+  image:
+    repository: ramesh10654/thetymbackend
+    tag: v1.2
+  mongodb:
+    uri: "mongodb+srv://admin:bbs2020@cluster0.ohkfp.mongodb.net/testdb?retryWrites=true&w=majority"
