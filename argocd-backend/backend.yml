@@ -22,7 +22,7 @@ spec:
         - containerPort: 80  # Add the container port if your backend service listens on a specific port
         env:
         - name: SPRING_DATA_MONGODB_URI
-          value: "mongodb://dbadmin:bbs2020@ec2-13-233-100-218.ap-south-1.compute.amazonaws.com:37011,ec2-13-233-100-218.ap-south-1.compute.amazonaws.com:37022,ec2-13-233-100-218.ap-south-1.compute.amazonaws.com:37033/Thetymv2?replicaSet=ReplSet1&authSource=admin&connectTimeoutMS=300000"
+          value: mongodb+srv://admin:bbs2020@cluster0.ohkfp.mongodb.net/testdb?retryWrites=true&w=majority
         imagePullPolicy: IfNotPresent  # Specify the image pull policy if needed
         imagePullSecrets:
         - name: dockerhub-secret
