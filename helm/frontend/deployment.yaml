@@ -1,22 +1,31 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: {{ include "myapp-chart.fullname" . }}
-  namespace: thetym
+  name: {{ include "backend-chart.fullname" . }}
+  namespace: {{ .Release.Namespace }}
   labels:
-    {{- include "myapp-chart.labels" . | nindent 4 }}
+    app: backend
+    chart: {{ include "backend-chart.name" . }}
+    release: {{ .Release.Name }}
 spec:
-  replicas: {{ .Values.replicaCount }}
+  replicas: 1
   selector:
     matchLabels:
-      app: frontend
+      app: backend
   template:
     metadata:
       labels:
-        {{- include "myapp-chart.labels" . | nindent 6 }}
+        app: backend
+        release: {{ .Release.Name }}
     spec:
       containers:
-        - name: frontend
-          image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
+        - name: backend
+          image: {{ .Values.backend.image.repository }}:{{ .Values.backend.image.tag }}
           ports:
-            - containerPort: {{ .Values.containerPort }}
+            - containerPort: 80
+          env:
+            - name: SPRING_DATA_MONGODB_URI
+              value: {{ .Values.backend.mongodb.uri }}
+          imagePullPolicy: IfNotPresent
+          imagePullSecrets:
+            - name: dockerhub-secret
